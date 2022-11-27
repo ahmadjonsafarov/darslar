@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter1811/uyishi.dart';
+import 'package:flutter1811/uyishi25fayl/page1.dart';
 
 class Uyishi extends StatefulWidget {
   const Uyishi({Key? key}) : super(key: key);
@@ -9,19 +10,18 @@ class Uyishi extends StatefulWidget {
 }
 
 class _UyishiState extends State<Uyishi> {
+  List list=[
+    Page1(),
+    Page1(),
+    Page1(),
+    Page1(),
+  ];
   int a=0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          color: Color(0xffF5F5F5),
-          width: double.infinity,
-          height: double.infinity,
-          child: Column(
-
-          ),
-        ),
+        body: list[a],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: a,
           onTap: (index){
