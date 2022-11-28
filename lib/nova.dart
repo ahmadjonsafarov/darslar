@@ -110,7 +110,7 @@ class _AppState extends State<App> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: list.length,
                 itemBuilder: (context,i){
                 return Container(
                   margin: EdgeInsets.only(left: 24,right: 20,top: 22,bottom: 20),

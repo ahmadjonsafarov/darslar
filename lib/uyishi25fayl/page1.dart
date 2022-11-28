@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter1811/uyishiclass.dart';
 class Page1 extends StatefulWidget {
   const Page1({Key? key}) : super(key: key);
 
@@ -8,6 +8,23 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
+  List<Con> list1=[
+    Con(text: "Shopping",
+        text1: "Tue 12.05.2021",
+        text2: '\$29.90'),
+    Con(text: "Movie Ticket",
+        text1: "Mon 11.05.2021",
+        text2: '\$9.50'),
+    Con(text: "Amazon",
+        text1: "Mon 11.05.2021",
+        text2: '\$19.30'),
+    Con(text: "Udemy",
+        text1: "We 13.05.2021",
+        text2: '\$20.00'),
+    Con(text: "Ali baba",
+        text1: "Fri 15.05.2021",
+        text2: '\$45.00'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +55,7 @@ class _Page1State extends State<Page1> {
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.blue,width: 2),
                       image: DecorationImage(
-                        image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMaskDDbocHAdpvMcIx9DQlSafM0RaYiuOmg&usqp=CAU'),
+                        image: NetworkImage('https://media-exp1.licdn.com/dms/image/C4D03AQF-e4EfxEgYHQ/profile-displayphoto-shrink_800_800/0/1667916921602?e=2147483647&v=beta&t=nA1N29sqLcLyYtJb-xgN07DzRZAp1RUBYW2_NLIdRBw'),
                       )
                     ),
                   ),
@@ -106,16 +123,31 @@ class _Page1State extends State<Page1> {
               Text('LAST transactions',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,color: Color(0xff858585)),),
               Expanded(
                 child: ListView.builder(
-                  itemCount:  20,
-                    itemBuilder: (context,index){
+                  itemCount: list1.length,
+                    itemBuilder: (context,i){
                   return Container(
+                    padding: EdgeInsets.all(16),
                     margin: EdgeInsets.only(bottom: 16),
                     width: double.infinity,
                     height: 100,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-
+                    ),
+                    child: Stack(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(list1[i].text,style: TextStyle(fontWeight: FontWeight.w700,fontSize: 18),),
+                            Spacer(),
+                            Text(list1[i].text1,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400),)
+                          ],
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                            child: Text(list1[i].text2,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700),),),
+                      ],
                     ),
                   );
                 }),
